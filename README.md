@@ -1,5 +1,6 @@
 
 Usage
+
 ---------------
 
 安装
@@ -7,8 +8,16 @@ Usage
 npm install --save react-marquee
 ````
 
+<<<<<<< HEAD
+=======
+组件
+````javascript
+<Marquee loopData={loopData} getMarquee={this.getMarquee}/>
+````
+>>>>>>> 26c5d3f63569dbddde597ab687df1689918d3af1
 
 Examples
+
 ---------------
 
 ````javascript
@@ -58,6 +67,17 @@ class MarqueePage extends Component {
 
 
 Api
+<<<<<<< HEAD
 ----
 
 ![api](./ass/api.png)
+=======
+
+----
+
+参数 | 说明 | 类型 | 默认值 
+- | :-: | -: | -: |
+>>>>>>> 62e6caf7a5e0bebfe2db94c0ebdb5d894434d44a
+loopData | 滚动的数据 | Array  |  无
+getMarquee | 可以从参数中获stop，run 函数控制marque运动和暂停 |  function | 无
+>>>>>>> 26c5d3f63569dbddde597ab687df1689918d3af1
