@@ -4,7 +4,7 @@ Usage
 
 安装
 ````javascript
-npm install --save react-marquee
+npm install --save react-mar-quee
 ````
 
 
@@ -13,7 +13,7 @@ Examples
 
 ````javascript
     
-import Marquee from 'react-marquee'
+import Marquee from 'react-mar-quee'
 
 class MarqueePage extends Component {
     constructor(props, context) {

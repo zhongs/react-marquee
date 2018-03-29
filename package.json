@@ -1,10 +1,14 @@
 {
-  "name": "react-scroll-plugin",
-  "version": "1.0.0",
+  "name": "react-mar-quee",
+  "version": "0.1.0",
   "description": "reat无缝滚动插件",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhongs/react-mar-quee.git"
   },
   "keywords": [
     "无缝滚动，滚动"
