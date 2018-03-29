@@ -1,5 +1,5 @@
 {
-  "name": "react-mar-quee",
+  "name": "react-marquee-order",
   "version": "0.1.0",
   "description": "reat无缝滚动插件",
   "main": "index.js",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhongs/react-mar-quee.git"
+    "url": "https://github.com/zhongs/react-marquee.git"
   },
   "keywords": [
     "无缝滚动，滚动"
   ],
   "author": "知道夜的黑",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.2.0"
