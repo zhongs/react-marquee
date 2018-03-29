@@ -1,6 +1,5 @@
 
 Usage
-
 ---------------
 
 安装
@@ -10,7 +9,6 @@ npm install --save react-marquee
 
 
 Examples
-
 ---------------
 
 ````javascript
