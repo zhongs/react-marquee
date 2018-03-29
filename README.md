@@ -1,27 +1,17 @@
-<<<<<<< HEAD
-=======
-## react无缝滚动插件
->>>>>>> 62e6caf7a5e0bebfe2db94c0ebdb5d894434d44a
 
 Usage
 ---------------
+
 安装
 ````javascript
-<<<<<<< HEAD
 npm install --save react-marquee
-=======
-    npm install --save react-marquee
 ````
 
-组件
-````javascript
-     <Marquee loopData={loopData} getMarquee={this.getMarquee}/>
->>>>>>> 62e6caf7a5e0bebfe2db94c0ebdb5d894434d44a
-````
 
 Examples
 ---------------
-```javascript
+
+````javascript
     
 import Marquee from 'react-marquee'
 
@@ -43,11 +33,7 @@ class MarqueePage extends Component {
         return (
             <div>
                 <div className="box">
-<<<<<<< HEAD
                     <Marquee loopData={loopData} getMarquee={this.getMarquee} />
-=======
-                    <Marquee loop={loop} loopData={loopData} getMarquee={this.getMarquee} />
->>>>>>> 62e6caf7a5e0bebfe2db94c0ebdb5d894434d44a
                 </div>
                 <div className="botton" onClick={this.runMarquee}>运动</div>
                 <div className="botton" onClick={this.stopMarquee}>暂停</div>
@@ -68,19 +54,10 @@ class MarqueePage extends Component {
     }
 
 }
-```
+````
 
 
 Api
-<<<<<<< HEAD
 ----
 
-参数 | 说明 | 类型 | 默认值 
-- | :-: | -: | -: 
-=======
----------------
-参数 | 说明 | 类型 | 默认值 
-- | :-: | -: | -: |
->>>>>>> 62e6caf7a5e0bebfe2db94c0ebdb5d894434d44a
-loopData | 滚动的数据 | Array  |  无
-getMarquee | 可以从参数中获stop，run 函数控制marque运动和暂停 |  function | 无
+![api](./ass/api.png)
