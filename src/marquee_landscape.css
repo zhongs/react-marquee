@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-.react-marquee-box .marquee-wrap{
+.react-marquee-box .marquee-landscape-wrap{
     position: absolute;
     left:0;
     top:0;
@@ -18,13 +18,13 @@
     align-items: center;
 }
 
-.react-marquee-box .marquee-wrap .marquee-item{
+.react-marquee-box .marquee-landscape-wrap .marquee-landscape-item{
     float: left;
     height: 100%;
     white-space: nowrap;
 }
 
-.react-marquee-box .marquee-wrap .marquee-item .marquee-txt{
+.react-marquee-box .marquee-landscape-wrap .marquee-landscape-item .marquee-landscape-txt{
     padding:0 10px;
     white-space: nowrap;
     display: inline-block;
