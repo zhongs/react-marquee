@@ -23,7 +23,7 @@ export default class Marquee extends Component {
     }
 
     initMarquee = () => {
-        this.timerMarquee && this.stopMarquee();
+        this.stopMarquee();
         this.runMarquee();
     }
 
@@ -41,7 +41,7 @@ export default class Marquee extends Component {
 
     // 运动
     runMarquee = () => {
-        this.timerMarquee && this.stopMarquee();
+        this.stopMarquee();
         if (this.props.direction === 'vertical') {
             this.timerMarquee = requestAnimationFrame(this.verticalMarquee);
         } else {
@@ -51,7 +51,7 @@ export default class Marquee extends Component {
 
     //暂停
     stopMarquee = () => {
-        cancelAnimationFrame(this.timerMarquee)
+        this.timerMarquee && cancelAnimationFrame(this.timerMarquee)
     }
 
     componentDidMount = () => {
@@ -64,6 +64,10 @@ export default class Marquee extends Component {
             stopMarquee: this.stopMarquee
         });
 
+    }
+
+    componentWillUnmount = ()=>{
+        this.stopMarquee();
     }
 
     renderLandscapeMarquee() {

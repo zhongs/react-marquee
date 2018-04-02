@@ -22,3 +22,4 @@ Api
 | loopData | 滚动的数据 | Array | 无 |
 | getMarquee | 可以从参数中获取stop，run函数控制marque的运动和暂停 | function | 无 |
 | direction | 滚动方向 ('landscape' , 'vertical') | String  | 'landscape' |
+| verticalItemHeight | 垂直滚动item的高度 | String  | '60px' |
