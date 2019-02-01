@@ -75,7 +75,7 @@
     "无缝滚动，滚动"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "modules",
   "maintainers": [
     {
       "name": "zhongs",
