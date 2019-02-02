@@ -1,5 +1,5 @@
 
-[Demo](https://zhongs.github.io/react-demo/dist/#/marquee)
+[Demo](./dist/index.html)
 
 Usage
 ---------------
@@ -11,7 +11,7 @@ npm install --save react-marquee-order
 Examples
 ---------------
 
-[一个栗子](https://github.com/zhongs/react-demo/blob/master/src/views/marquee/index.js)
+[一个栗子](./examples/app.js)
 
 
 Api
