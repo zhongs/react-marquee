@@ -56,36 +56,7 @@
   "bugs": {
     "url": "https://github.com/zhongs/react-marquee/issues"
   },
-  "dependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0"
-  },
   "description": "reat无缝滚动插件",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-import": "^1.6.5",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-hmre": "^1.1.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "cross-env": "^4.0.0",
-    "css-loader": "^0.28.1",
-    "style-loader": "^0.17.0",
-    "react-dom": "^16.0.0",
-    "html-webpack-plugin": "^2.30.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "webpack-cli": "^3.2.1",
-    "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.2"
-  },
   "directories": {},
   "dist": {
     "shasum": "88b45394b34a8ffc60766f280b1eae707ee472c0",
@@ -108,16 +79,21 @@
   ],
   "name": "react-marquee-order",
   "optionalDependencies": {},
-  "readme": "\r\n[Demo](https://zhongs.github.io/react-demo/dist/#/marquee)\r\n\r\nUsage\r\n---------------\r\n\r\n安装\r\n````javascript\r\nnpm install --save react-marquee-order\r\n````\r\nExamples\r\n---------------\r\n\r\n[一个栗子](https://github.com/zhongs/react-demo/blob/master/src/views/marquee/index.js)\r\n\r\n\r\nApi\r\n----\r\n\r\n| 参数 | 说明 | 类型 | 默认值 |\r\n| :---: | :----: | :----: | :----: |\r\n| loopData | 滚动的数据 | Array | 无 |\r\n| getMarquee | 可以从参数中获取stop，run函数控制marque的运动和暂停 | function | 无 |\r\n| direction | 滚动方向 ('landscape' , 'vertical') | String  | 'landscape' |\r\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhongs/react-marquee.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules",
-    "examples": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --open --inline --hot"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.2.0"
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  },
+  "version": "0.2.2",
+  "dependencies": {}
 }
