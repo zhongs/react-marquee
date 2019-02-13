@@ -5,12 +5,15 @@ export default {
   input: './src/main.js',
   output: {
     file: './dist/scroll.js',
-    name: 'scroll',
+    name: 'Scroll',
     format: 'umd'
   },
-  plugins:[
-    resolve(),  babel({
-      exclude: 'node_modules/**' 
+  plugins: [
+    resolve(), babel({
+      exclude: 'node_modules/**'
     })
-  ]
+  ],
+  watch: {
+    include: 'src/**'
+  }
 }

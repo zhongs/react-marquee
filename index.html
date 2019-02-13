@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    #container {
+      height: 80px;
+      border:1px solid #ccc;
+      margin: 80px;
+      position: relative;
+    }
+    .btn{
+      margin: 20px;
+      cursor: pointer;
+      background-color: #ccc;
+      max-width: 80px;
+      text-align: center;
+      padding: 10px;
+    }
+    .item{
+      font-size: 15px;
+      color:#999;
+      background-color: aquamarine;
+      position: absolute;
+      right:0;
+      top: 50%;
+      transform: translate3d(100%,-50%,0);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container"></div>
+
+  <div class="btn">start</div>
+  <div class="btn">pause</div>
+
+  <script src="./dist/scroll.js"></script>
+  <script>
+    const scroll = new Scroll({
+      box: 'container',
+      globalStyle: 'item',  
+      data:[
+        { txt: '滚动数据1' }
+      ]
+    })
+
+    window.scroll = scroll
+    console.log(scroll)
+
+    const btns = document.querySelectorAll('.btn')
+    btns[0].addEventListener('click', ()=>{
+      scroll.start()
+    })
+
+    btns[1].addEventListener('click', ()=>{
+      scroll.pause()
+    })
+
+
+  </script>
+</body>
+
+</html>
