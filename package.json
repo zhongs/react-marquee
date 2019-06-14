@@ -86,7 +86,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "build": "rollup --config"
+=======
+    "rollup": "rollup -c --watch"
+>>>>>>> a3e9bb85795fc6d8ad17790438780b07f3e8bbb7
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
