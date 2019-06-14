@@ -1,4 +1,4 @@
-import { raf } from './utils/raf'
+import { raf } from './utils'
 
 export default class Scroll {
   constructor(){
