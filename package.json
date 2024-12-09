@@ -1,55 +1,79 @@
 {
   "name": "react-marquee-order",
-  "version": "0.3.0",
-  "description": "react无缝滚动插件",
-  "main": "modules",
-  "author": {
-    "name": "知道夜的黑"
+  "version": "2.0.0",
+  "description": "A modern React seamless scroll component with TypeScript support",
+  "type": "module",
+  "main": "./dist/react-marquee.umd.js",
+  "module": "./dist/react-marquee.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-marquee.es.js",
+      "require": "./dist/react-marquee.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/zhongs/react-marquee#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhongs/react-marquee.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zhongs/react-marquee/issues"
-  },
-  "keywords": ["无缝滚动", "滚动"],
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules",
-    "examples": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --open --inline --hot",
-    "deploy": "gh-pages -d dist"
+    "dev": "vite --mode demo",
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepare": "husky install && pnpm build",
+    "prepublishOnly": "pnpm test && pnpm lint",
+    "version": "pnpm format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
-  "dependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0"
+  "keywords": [
+    "react",
+    "scroll",
+    "seamless",
+    "marquee",
+    "typescript",
+    "animation",
+    "component",
+    "ui"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-import": "^1.6.5",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-hmre": "^1.1.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "cross-env": "^4.0.0",
-    "css-loader": "^0.28.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "gh-pages": "^6.2.0",
-    "html-webpack-plugin": "^2.30.1",
-    "react-dom": "^16.0.0",
-    "style-loader": "^0.17.0",
-    "webpack": "^2.4.1",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^8.0.3",
+    "jsdom": "^22.0.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "vitest": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/react-marquee.git"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

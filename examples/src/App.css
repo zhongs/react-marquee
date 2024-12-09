@@ -1,20 +1,7 @@
-html,body{
-  min-width: 320px;
-  height: 100%;
-  margin: 0 auto;
-}
-
-* {
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-}
-
 .demo-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 h1 {
@@ -55,7 +42,7 @@ h1 {
   min-width: 0; /* 防止flex子项溢出 */
 }
 
-.box-landscape{
+.box-landscape {
   width: 100%;
   height: 40px;
   position: relative;
@@ -66,7 +53,7 @@ h1 {
   overflow: hidden;
 }
 
-.box-vertical{
+.box-vertical {
   width: 100%;
   height: 240px;
   position: relative;
@@ -77,22 +64,30 @@ h1 {
   overflow: hidden;
 }
 
-.box-landscape .marquee-landscape-wrap,
-.box-vertical .marquee-vertical-wrap {
-  width: 100%;
+/* 垂直滚动样式 */
+.box-vertical .marquee-container {
   height: 100%;
 }
 
-.marquee-landscape-txt {
-  padding: 0 10px;
-  line-height: 40px;
-  font-size: 14px;
-  color: #666;
+.box-vertical .marquee-content {
+  height: 100%;
 }
 
-.marquee-vertical-txt {
-  font-size: 14px;
-  color: #666;
+.box-vertical .marquee-group {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.box-vertical .marquee-item {
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  padding: 0 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
 }
 
 .controls {
@@ -138,34 +133,6 @@ h1 {
   color: #476582;
 }
 
-/* 参数表格样式 */
-.params-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.params-table th,
-.params-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-
-.params-table th {
-  background: #fafafa;
-  font-weight: 600;
-}
-
-.params-table td {
-  color: #666;
-}
-
-.params-table tr:hover td {
-  background: #fafafa;
-}
-
 /* 响应式布局 */
 @media (max-width: 768px) {
   .demo-container {
@@ -198,12 +165,6 @@ h1 {
   }
   
   .code-block {
-    font-size: 12px;
-  }
-  
-  .params-table th,
-  .params-table td {
-    padding: 8px;
     font-size: 12px;
   }
 }

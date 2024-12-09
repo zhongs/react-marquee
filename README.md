@@ -1,168 +1,108 @@
-# React Marquee
+# React Seamless Scroll
 
-一个灵活的 React 无缝滚动组件，支持横向和竖向滚动。
+English | [简体中文](./README.zh-CN.md)
 
-## 在线演示
+A modern React seamless scrolling component with perfect support for both horizontal and vertical scrolling. Built with TypeScript, featuring smooth scrolling effects, flexible configuration options, and complete type support.
 
-[查看在线 Demo](https://zhongs.github.io/react-marquee/index.html)
+## ✨ Features
 
-## 特性
+- 🔄 Perfect seamless scrolling without gaps
+- ↔️ Horizontal and vertical scrolling
+- 🎯 Customizable scroll speed
+- 🔁 Support for forward and reverse scrolling
+- ⏯️ Hover pause support
+- 🖱️ Click event handling
+- 🎨 Flexible style customization
+- 📱 Responsive design
+- 🚀 Written in TypeScript for type safety
+- 🔥 Built with React 18+
+- 📦 Zero dependencies (except React)
+- ⚡️ Transform-based implementation for superior performance
 
-- 支持横向和竖向滚动
-- 支持自定义滚动速度
-- 支持反向滚动
-- 支持鼠标悬停暂停
-- 支持手动控制滚动
-- 支持点击事件
-- 支持自定义样式
-
-## 安装
+## 📦 Installation
 
 ```bash
-npm install @react-marquee/core
+npm install react-marquee-order
+# or
+pnpm add react-marquee-order
+# or
+yarn add react-marquee-order
 ```
 
-## Examples
+## 🚀 Usage
 
-查看完整示例：[examples/marquee/index.js](./examples/marquee/index.js)
+```tsx
+import React, { useRef } from 'react';
+import { Marquee, MarqueeHandle } from 'react-marquee-order';
 
-示例包括：
-- 基础横向滚动
-- 竖向滚动
-- 自定义速度
-- 反向滚动
-- 鼠标悬停暂停
-- 手动控制滚动
-- 点击事件处理
+const App = () => {
+  const marqueeRef = useRef<MarqueeHandle>(null);
+  
+  const data = [
+    { text: "Seamless scroll item 1" },
+    { text: "Seamless scroll item 2" },
+    { text: "Seamless scroll item 3" }
+  ];
 
-## 使用示例
-
-```jsx
-import Marquee from '@react-marquee/core';
-
-// 基础用法
-const BasicExample = () => (
-  <Marquee 
-    loopData={[
-      { txt: '滚动内容1' },
-      { txt: '滚动内容2' }
-    ]} 
-  />
-);
-
-// 竖向滚动
-const VerticalExample = () => (
-  <Marquee 
-    loopData={[
-      { txt: '竖向滚动1' },
-      { txt: '竖向滚动2' }
-    ]} 
-    direction="vertical"
-    verticalItemHeight="60px"
-  />
-);
-
-// 反向滚动
-const ReverseExample = () => (
-  <Marquee 
-    loopData={[
-      { txt: '反向滚动1' },
-      { txt: '反向滚动2' }
-    ]} 
-    reverse={true}
-  />
-);
-
-// 鼠标悬停暂停
-const HoverPauseExample = () => (
-  <Marquee 
-    loopData={[
-      { txt: '鼠标悬停暂停1' },
-      { txt: '鼠标悬停暂停2' }
-    ]} 
-    hoverPause={true}
-  />
-);
-
-// 手动控制滚动
-const ManualControlExample = () => {
-  const marqueeRef = React.useRef();
-
-  const handleStart = () => {
-    marqueeRef.current?.start();
-  };
-
-  const handleStop = () => {
-    marqueeRef.current?.stop();
+  const handleClick = (item: any, index: number) => {
+    console.log('Clicked:', item, 'at index:', index);
   };
 
   return (
-    <>
-      <Marquee 
+    <div style={{ width: '100%', height: '40px' }}>
+      <Marquee
         ref={marqueeRef}
-        loopData={[
-          { txt: '手动控制1' },
-          { txt: '手动控制2' }
-        ]} 
-        autoPlay={false}
+        loopData={data}
+        speed={2}
+        direction="horizontal"
+        reverse={false}
+        hoverPause={true}
+        onClick={handleClick}
       />
-      <button onClick={handleStart}>开始</button>
-      <button onClick={handleStop}>暂停</button>
-    </>
+    </div>
   );
 };
 
-// 点击事件处理
-const ClickExample = () => (
-  <Marquee 
-    loopData={[
-      { txt: '点击事件1' },
-      { txt: '点击事件2' }
-    ]} 
-    onClick={(item, index) => {
-      console.log(`点击了第${index + 1}项: ${item.txt}`);
-    }}
-  />
-);
+export default App;
 ```
 
-## API
+## 📖 API Reference
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| loopData | 滚动数据 | array | - |
-| direction | 滚动方向，可选值：'landscape'、'vertical' | string | 'landscape' |
-| verticalItemHeight | 竖向滚动时每项的高度 | string | '60px' |
-| speed | 滚动速度 | number | 2 |
-| reverse | 是否反向滚动 | boolean | false |
-| hoverPause | 是否启用鼠标悬停暂停 | boolean | false |
-| autoPlay | 是否自动开始滚动 | boolean | true |
-| onClick | 点击项目时的回调，参数为 (item, index) | function | - |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| loopData | `Array<any>` | `[]` | Data array for continuous scrolling |
+| direction | `'horizontal' \| 'vertical'` | `'horizontal'` | Scroll direction: horizontal/vertical |
+| speed | `number` | `2` | Scroll speed (pixels per frame) |
+| reverse | `boolean` | `false` | Whether to scroll in reverse |
+| hoverPause | `boolean` | `true` | Whether to pause on hover |
+| onClick | `(item: any, index: number) => void` | - | Callback function for item clicks |
 
-### 实例方法
+### Methods
 
-通过 ref 可以获取到组件实例并调用以下方法：
+The component exposes these methods via ref:
 
-| 方法名 | 说明 | 参数 |
-| --- | --- | --- |
-| start | 开始滚动 | - |
-| stop | 暂停滚动 | - |
+- `play()`: Start scrolling
+- `pause()`: Pause scrolling
+- `reset()`: Reset position
 
-## 开发
+## 🚨 v2.0.0 Updates
 
-```bash
-# 安装依赖
-npm install
+- 🆙 Upgraded to React 18
+- 📝 Migrated to TypeScript with full type support
+- 🛠️ Upgraded build tool to Vite
+- ⚡️ Optimized scrolling algorithm for smoother experience
+- 🎯 Improved API design with better type support
 
-# 启动开发服务
-npm run examples
+## 🌐 Browser Support
 
-# 构建
-npm run build
-```
+Supports all modern browsers and IE11+ with appropriate polyfills.
 
-## License
+## 🤝 Contributing
 
-MIT
+Pull requests are welcome to improve this component!
+
+## 📄 License
+
+MIT 

@@ -1,2 +1,28 @@
+# Source
+src
+examples
+tests
+
+# Config files
+.eslintrc.cjs
+.prettierrc
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+vitest.config.ts
+
+# Development files
 node_modules
-dist
+coverage
+*.log
+.husky
+.vscode
+.idea
+.DS_Store
+
+# Git files
+.git
+.gitignore
+
+# CI/CD
+.github
