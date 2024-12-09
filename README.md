@@ -124,6 +124,7 @@ const ClickExample = () => (
     }}
   />
 );
+```
 
 ## API
 
