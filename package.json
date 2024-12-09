@@ -14,7 +14,7 @@
     ]
   ],
   "_from": "react-marquee-order@latest",
-  "_id": "react-marquee-order@0.2.0",
+  "_id": "react-marquee-order@0.3.0",
   "_inCache": true,
   "_location": "/react-marquee-order",
   "_nodeVersion": "8.9.4",
@@ -120,5 +120,5 @@
     "examples": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --open --inline --hot",
     "deploy": "gh-pages -d dist"
   },
-  "version": "0.2.0"
+  "version": "0.3.0"
 }
