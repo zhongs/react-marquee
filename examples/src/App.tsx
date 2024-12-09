@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Marquee, MarqueeHandle } from '../../src/index';
 
 const DEFAULT_SPEED = 2;
