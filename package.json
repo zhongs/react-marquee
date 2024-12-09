@@ -20,16 +20,14 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "dev": "vite --mode demo",
     "build": "tsc && vite build",
+    "examples:dev": "cd examples && pnpm dev",
+    "examples:build": "cd examples && pnpm i && pnpm build",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install && pnpm build",
-    "prepublishOnly": "pnpm test && pnpm lint",
-    "version": "pnpm format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "deploy": "npm run examples:build && gh-pages -d examples/dist"
   },
   "keywords": [
     "react",
@@ -46,8 +44,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^14.0.0",
     "@testing-library/jest-dom": "^6.1.0",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -56,6 +54,7 @@
     "eslint": "^8.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.2.0",
     "husky": "^8.0.3",
     "jsdom": "^22.0.0",
     "prettier": "^3.1.0",
@@ -66,7 +65,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/react-marquee.git"
+    "url": "git+https://github.com/zhongs/react-marquee.git"
   },
   "author": "Your Name",
   "license": "MIT",
