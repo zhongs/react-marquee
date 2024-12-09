@@ -1,191 +1,127 @@
-import React, { useRef } from 'react'
-import { Marquee, MarqueeHandle } from '../../src'
-import './App.css'
+import React, { useRef, useState } from 'react';
+import { Marquee, MarqueeHandle } from '../../src/index';
 
-const App: React.FC = () => {
-  const landscapeMarqueeRef = useRef<MarqueeHandle>(null)
-  const verticalMarqueeRef = useRef<MarqueeHandle>(null)
-  const reverseMarqueeRef = useRef<MarqueeHandle>(null)
-  const manualMarqueeRef = useRef<MarqueeHandle>(null)
-  const clickMarqueeRef = useRef<MarqueeHandle>(null)
+const DEFAULT_SPEED = 2;
 
-  const loopData = [
-    { txt: "这是一条数据1" }, 
-    { txt: "这是一条数据2" }, 
-    { txt: "这是一条数据3" }, 
-    { txt: "这是一条数据4" },
-    { txt: "这是一条数据5" }
-  ]
+const App = () => {
+  const horizontalRef = useRef<MarqueeHandle>(null);
+  const verticalRef = useRef<MarqueeHandle>(null);
+  
+  const [horizontalSpeed, setHorizontalSpeed] = useState(DEFAULT_SPEED);
+  const [verticalSpeed, setVerticalSpeed] = useState(DEFAULT_SPEED);
+  const [horizontalReverse, setHorizontalReverse] = useState(false);
+  const [verticalReverse, setVerticalReverse] = useState(false);
 
-  const reverseData = [
-    { txt: '反向滚动示例1 ←' },
-    { txt: '反向滚动示例2 ←' },
-    { txt: '反向滚动示例3 ←' },
-    { txt: '反向滚动示例4 ←' },
-    { txt: '反向滚动示例5 ←' },
-  ]
+  const horizontalData = [
+    { txt: "无缝滚动示例 1" },
+    { txt: "无缝滚动示例 2" },
+    { txt: "无缝滚动示例 3" },
+    { txt: "无缝滚动示例 4" },
+    { txt: "无缝滚动示例 5" }
+  ];
 
-  const handleMarqueeClick = (item: any, index: number) => {
-    console.log('Clicked item:', item, 'at index:', index)
-  }
+  const verticalData = [
+    { txt: "垂直滚动项 1" },
+    { txt: "垂直滚动项 2" },
+    { txt: "垂直滚动项 3" },
+    { txt: "垂直滚动项 4" },
+    { txt: "垂直滚动项 5" }
+  ];
 
-  const renderCode = (code: string) => (
-    <pre className="code-block">
-      <code>{code}</code>
-    </pre>
-  )
+  const handleClick = (item: any, index: number) => {
+    console.log('点击了:', item, '索引:', index);
+    alert(`点击了: ${item.txt} (索引: ${index})`);
+  };
+
+  const handleHorizontalReset = () => {
+    horizontalRef.current?.reset();
+    setHorizontalSpeed(DEFAULT_SPEED);
+    setHorizontalReverse(false);
+  };
+
+  const handleVerticalReset = () => {
+    verticalRef.current?.reset();
+    setVerticalSpeed(DEFAULT_SPEED);
+    setVerticalReverse(false);
+  };
 
   return (
-    <div className="demo-container">
-      <h1>React Marquee 演示</h1>
+    <div className="container">
+      <h1>React 无缝滚动演示</h1>
       
+      {/* 水平滚动演示 */}
       <section className="demo-section">
-        <h2 className="type-title">1. 默认横向滚动</h2>
-        <div className="demo-box">
-          <div className="preview">
-            <div className="box-landscape">
-              <Marquee 
-                ref={landscapeMarqueeRef}
-                loopData={loopData} 
-                speed={2}
-              />
-            </div>
-            <div className="controls">
-              <button className="button" onClick={() => landscapeMarqueeRef.current?.play()}>开始</button>
-              <button className="button" onClick={() => landscapeMarqueeRef.current?.pause()}>暂停</button>
-            </div>
+        <h2>水平滚动</h2>
+        <div className="controls">
+          <div className="speed-control">
+            <label>速度:</label>
+            <input 
+              type="range" 
+              min="1" 
+              max="10" 
+              value={horizontalSpeed}
+              onChange={(e) => setHorizontalSpeed(Number(e.target.value))}
+            />
+            <span>{horizontalSpeed}</span>
           </div>
-          <div className="code">
-            {renderCode(
-`<Marquee 
-  loopData={[
-    { txt: "这是一条数据1" }, 
-    { txt: "这是一条数据2" }
-  ]} 
-  speed={2}
-/>`
-            )}
-          </div>
+          <button onClick={() => setHorizontalReverse(!horizontalReverse)}>
+            {horizontalReverse ? '切换为正向' : '切换为反向'}
+          </button>
+          <button onClick={() => horizontalRef.current?.play()}>开始</button>
+          <button onClick={() => horizontalRef.current?.pause()}>暂停</button>
+          <button onClick={handleHorizontalReset}>重置</button>
         </div>
+        <div style={{ width: '100%', height: '40px', border: '1px solid #eee' }}>
+          <Marquee
+            ref={horizontalRef}
+            loopData={horizontalData}
+            speed={horizontalSpeed}
+            direction="horizontal"
+            reverse={horizontalReverse}
+            hoverPause={true}
+            onClick={handleClick}
+          />
+        </div>
+        <p>提示：鼠标悬停可暂停滚动，点击项目可触发事件</p>
       </section>
 
+      {/* 垂直滚动演示 */}
       <section className="demo-section">
-        <h2 className="type-title">2. 竖向滚动</h2>
-        <div className="demo-box">
-          <div className="preview">
-            <div className="box-vertical">
-              <Marquee 
-                ref={verticalMarqueeRef}
-                loopData={loopData} 
-                direction='vertical' 
-                verticalItemHeight='50px'
-                speed={2}
-              />
-            </div>
-            <div className="controls">
-              <button className="button" onClick={() => verticalMarqueeRef.current?.play()}>开始</button>
-              <button className="button" onClick={() => verticalMarqueeRef.current?.pause()}>暂停</button>
-            </div>
+        <h2>垂直滚动</h2>
+        <div className="controls">
+          <div className="speed-control">
+            <label>速度:</label>
+            <input 
+              type="range" 
+              min="1" 
+              max="10" 
+              value={verticalSpeed}
+              onChange={(e) => setVerticalSpeed(Number(e.target.value))}
+            />
+            <span>{verticalSpeed}</span>
           </div>
-          <div className="code">
-            {renderCode(
-`<Marquee 
-  loopData={loopData}
-  direction='vertical'
-  verticalItemHeight='50px'
-  speed={2}
-/>`
-            )}
-          </div>
+          <button onClick={() => setVerticalReverse(!verticalReverse)}>
+            {verticalReverse ? '切换为正向' : '切换为反向'}
+          </button>
+          <button onClick={() => verticalRef.current?.play()}>开始</button>
+          <button onClick={() => verticalRef.current?.pause()}>暂停</button>
+          <button onClick={handleVerticalReset}>重置</button>
         </div>
-      </section>
-
-      <section className="demo-section">
-        <h2 className="type-title">3. 反向滚动</h2>
-        <div className="demo-box">
-          <div className="preview">
-            <div className="box-landscape">
-              <Marquee 
-                ref={reverseMarqueeRef}
-                loopData={reverseData} 
-                reverse={true}
-                speed={2}
-              />
-            </div>
-            <div className="controls">
-              <button className="button" onClick={() => reverseMarqueeRef.current?.play()}>开始</button>
-              <button className="button" onClick={() => reverseMarqueeRef.current?.pause()}>暂停</button>
-            </div>
-          </div>
-          <div className="code">
-            {renderCode(
-`<Marquee 
-  loopData={reverseData}
-  reverse={true}
-  speed={2}
-/>`
-            )}
-          </div>
+        <div className="vertical-container">
+          <Marquee
+            ref={verticalRef}
+            loopData={verticalData}
+            speed={verticalSpeed}
+            direction="vertical"
+            reverse={verticalReverse}
+            hoverPause={true}
+            onClick={handleClick}
+          />
         </div>
-      </section>
-
-      <section className="demo-section">
-        <h2 className="type-title">4. 手动控制</h2>
-        <div className="demo-box">
-          <div className="preview">
-            <div className="box-landscape">
-              <Marquee 
-                ref={manualMarqueeRef}
-                loopData={loopData} 
-                speed={2}
-              />
-            </div>
-            <div className="controls">
-              <button className="button" onClick={() => manualMarqueeRef.current?.play()}>开始</button>
-              <button className="button" onClick={() => manualMarqueeRef.current?.pause()}>暂停</button>
-            </div>
-          </div>
-          <div className="code">
-            {renderCode(
-`<Marquee 
-  loopData={loopData}
-  speed={2}
-/>`
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="demo-section">
-        <h2 className="type-title">5. 点击事件</h2>
-        <div className="demo-box">
-          <div className="preview">
-            <div className="box-landscape">
-              <Marquee 
-                ref={clickMarqueeRef}
-                loopData={loopData} 
-                speed={2}
-                onClick={handleMarqueeClick}
-              />
-            </div>
-            <div className="controls">
-              <button className="button" onClick={() => clickMarqueeRef.current?.play()}>开始</button>
-              <button className="button" onClick={() => clickMarqueeRef.current?.pause()}>暂停</button>
-            </div>
-          </div>
-          <div className="code">
-            {renderCode(
-`<Marquee 
-  loopData={loopData}
-  speed={2}
-  onClick={(item, index) => console.log('Clicked:', item, index)}
-/>`
-            )}
-          </div>
-        </div>
+        <p>提示：鼠标悬停可暂停滚动，点击项目可触发事件</p>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
