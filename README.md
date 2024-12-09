@@ -4,7 +4,7 @@
 
 ## 在线演示
 
-[查看在线 Demo](https://zhongs.github.io/react-marquee/dist/index.html)
+[查看在线 Demo](https://zhongs.github.io/react-marquee/index.html)
 
 ## 特性
 
