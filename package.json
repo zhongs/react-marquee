@@ -1,66 +1,31 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "react-marquee-order",
-        "scope": null,
-        "escapedName": "react-marquee-order",
-        "name": "react-marquee-order",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "E:\\work\\demo\\react-demo"
-    ]
-  ],
-  "_from": "react-marquee-order@latest",
-  "_id": "react-marquee-order@0.3.0",
-  "_inCache": true,
-  "_location": "/react-marquee-order",
-  "_nodeVersion": "8.9.4",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/react-marquee-order_0.2.0_1522375980588_0.6538238360492692"
-  },
-  "_npmUser": {
-    "name": "zhongs",
-    "email": "191492580@qq.com"
-  },
-  "_npmVersion": "4.5.0",
-  "_phantomChildren": {
-    "fbjs": "0.8.16",
-    "loose-envify": "1.3.1",
-    "object-assign": "4.1.1"
-  },
-  "_requested": {
-    "raw": "react-marquee-order",
-    "scope": null,
-    "escapedName": "react-marquee-order",
-    "name": "react-marquee-order",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/react-marquee-order/-/react-marquee-order-0.2.0.tgz",
-  "_shasum": "88b45394b34a8ffc60766f280b1eae707ee472c0",
-  "_shrinkwrap": null,
-  "_spec": "react-marquee-order",
-  "_where": "E:\\work\\demo\\react-demo",
+  "name": "react-marquee-order",
+  "version": "0.3.0",
+  "description": "react无缝滚动插件",
+  "main": "modules",
   "author": {
     "name": "知道夜的黑"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/zhongs/react-marquee#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhongs/react-marquee.git"
+  },
   "bugs": {
     "url": "https://github.com/zhongs/react-marquee/issues"
+  },
+  "keywords": ["无缝滚动", "滚动"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules",
+    "examples": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --open --inline --hot",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.2.0"
   },
-  "description": "reat无缝滚动插件",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -86,39 +51,5 @@
     "webpack": "^2.4.1",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^2.4.2"
-  },
-  "directories": {},
-  "dist": {
-    "shasum": "88b45394b34a8ffc60766f280b1eae707ee472c0",
-    "tarball": "https://registry.npmjs.org/react-marquee-order/-/react-marquee-order-0.2.0.tgz",
-    "fileCount": 8,
-    "unpackedSize": 6847
-  },
-  "gitHead": "cd86ef7727e2d908a6dd4efc95bab7d78035d425",
-  "homepage": "https://github.com/zhongs/react-marquee#readme",
-  "keywords": [
-    "无缝滚动，滚动"
-  ],
-  "license": "MIT",
-  "main": "modules",
-  "maintainers": [
-    {
-      "name": "zhongs",
-      "email": "191492580@qq.com"
-    }
-  ],
-  "name": "react-marquee-order",
-  "readme": "\r\n[Demo](https://zhongs.github.io/react-demo/dist/#/marquee)\r\n\r\nUsage\r\n---------------\r\n\r\n安装\r\n````javascript\r\nnpm install --save react-marquee-order\r\n````\r\nExamples\r\n---------------\r\n\r\n[一个栗子](https://github.com/zhongs/react-demo/blob/master/src/views/marquee/index.js)\r\n\r\n\r\nApi\r\n----\r\n\r\n| 参数 | 说明 | 类型 | 默认值 |\r\n| :---: | :----: | :----: | :----: |\r\n| loopData | 滚动的数据 | Array | 无 |\r\n| getMarquee | 可以从参数中获取stop，run函数控制marque的运动和暂停 | function | 无 |\r\n| direction | 滚动方向 ('landscape' , 'vertical') | String  | 'landscape' |\r\n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhongs/react-marquee.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules",
-    "examples": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --open --inline --hot",
-    "deploy": "gh-pages -d dist"
-  },
-  "version": "0.3.0"
+  }
 }
