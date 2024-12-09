@@ -4,6 +4,10 @@ English | [简体中文](./README.zh-CN.md)
 
 A modern React seamless scrolling component with perfect support for both horizontal and vertical scrolling. Built with TypeScript, featuring smooth scrolling effects, flexible configuration options, and complete type support.
 
+## 🌐 Demo
+
+Check out the live demo: [React Seamless Scroll Demo](https://zhongs.github.io/react-marquee/)
+
 ## ✨ Features
 
 - 🔄 Perfect seamless scrolling without gaps
